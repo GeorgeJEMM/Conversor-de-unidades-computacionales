@@ -1,0 +1,39 @@
+import groovy.swing.SwingBuilder
+swing = new SwingBuilder()
+frame = swing.frame(title:'Demostración') {
+    menuBar {
+        menu('Menu') {
+            menuItem 'Limpiar',actionPerformed: {txt.text=""; lb.text = ""}
+            menuItem 'Contar palabras',actionPerformed: {
+                if(txt.text != "") {
+                    def texto = txt.getText()
+                    def cont=0
+                    texto.tokenize().each{
+                        cont++
+                    }
+                    lb.text= cont
+                }
+            }
+            menuItem 'Salir',actionPerformed: { System.exit(0) }
+        }
+    }
+    panel {
+        textField id:"txt", columns: 20
+        label '      ', id: "lb"
+        button "Limpiar",actionPerformed: { txt.text=""; lb.text = ""}
+        button "Contar palabras" ,actionPerformed: {
+            if(txt.text != "") {
+                def texto = txt.getText()
+                def cont=0
+                texto.tokenize().each{
+                    cont++
+                }
+                lb.text= cont
+            }
+        }
+        button "Salir",actionPerformed: { System.exit(0) }
+
+    }
+}
+frame.pack()
+frame.show()

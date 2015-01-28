@@ -1,0 +1,9 @@
+<prueba>
+  <prueba elemento1='Computadora' elemento2='Monitor'>
+    <lenguaje lenguaje='Java' />
+    <lenguaje lenguaje='Groovy' />
+    <lenguaje lenguaje='Erland' />
+    <lenguaje lenguaje='Perl' />
+    <lenguaje lenguaje='Ruby' />
+  </prueba>
+</prueba>

@@ -1,0 +1,22 @@
+document = groovy.xml.DOMBuilder.parse(new FileReader('pruebas.xml' ))
+def raiz = document.documentElement
+
+use(groovy.xml.dom.DOMCategory) {
+    println "Lenguajes Ordenados"
+    def lenguajes = raiz.prueba
+    def ls = []
+    lenguajes.each {v ->
+        v.lenguaje.each
+                {
+            ls << "${it.'@lenguaje'}"
+           // println "${it.'@lenguaje'}"
+
+        }
+
+          ls.sort()
+                for(i in 0..ls.size() - 1) {
+                    println ls[i]
+                }
+
+    }
+}

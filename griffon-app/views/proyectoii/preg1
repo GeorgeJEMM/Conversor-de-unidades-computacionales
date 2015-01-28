@@ -1,0 +1,16 @@
+def wt = new StringWriter()
+
+def constructor = new groovy.xml.MarkupBuilder(wt)
+constructor.prueba {
+
+    def l = ["Java","Groovy","Erland","Perl","Ruby"]
+    prueba (elemento1: "Computadora", elemento2: "Monitor") {
+        for (i in 0..4) {
+            lenguaje (lenguaje: "${l[i]}")
+        }
+    }
+}
+def salidaprueba = wt.toString()
+def arch = new File('pruebas.xml')
+arch.write(salidaprueba)
+println salidaprueba + '\n'
